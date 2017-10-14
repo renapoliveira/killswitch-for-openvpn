@@ -16,13 +16,13 @@ This script performs the following:
 Give the script execution permission:
 
 ```shell
-chmod +x run.sh
+chmod +x killswitch.sh
 ```
 
 Run the script specifying the full path of your .ovpn file:
 
 ```shell
-sudo ./run.sh /tmp/vpn.ovpn
+sudo ./killswitch.sh /tmp/vpn.ovpn
 ```
 
 ## Notes
