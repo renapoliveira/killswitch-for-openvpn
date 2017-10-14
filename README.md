@@ -5,7 +5,7 @@ A killswitch script with autoconnecting function for OpenVPN
 
 This script performs the following:
 
--It blocks all traffic through your default network interface, except the communication with the VPN IP ADDRESS, meaning that if the VPn goes down, your traffic will not go through your default interface. 
+-It blocks all traffic through your default network interface, except the communication with the VPN IP address, meaning that if the VPN goes down, your traffic will not go through your default interface. 
 
 -It allows full communication through the VPN tunnel interface.
 
@@ -13,8 +13,14 @@ This script performs the following:
 
 ## Usage
 
-Give the script execution permission
+Give the script execution permission:
 
 ```shell
 chmod +x run.sh
+```
+
+Run the script specifying the full path of your .ovpn file:
+
+```shell
+./run.sh /tmp/vpn.ovpn
 ```
