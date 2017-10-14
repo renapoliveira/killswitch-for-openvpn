@@ -2,6 +2,13 @@
 source config.sh
 trap ctrl_c INT
 
+#Check root permission
+if test " `id -u`" != " 0"
+then
+    echo "permission denied (use sudo)"
+    exit 1
+fi
+
 function ctrl_c() {
 	echo "Flushing iptables and exiting"
 	iptables --flush
