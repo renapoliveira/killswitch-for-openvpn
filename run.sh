@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Import config file
-source config.sh
+source config
 
 #Get the VPN IP from the VPN file
 IP=$(cat $VPN_FILE | grep "remote " | awk '{print $2}')
@@ -40,8 +40,6 @@ do
 		kill `ps -ef | grep $VPN_FILE | grep -v "grep" | awk '{print $2}'`
 		#Start openvpn
 		openvpn $VPN_FILE &
-	else
-		echo "connected"
 	fi
 	sleep 20
 done
