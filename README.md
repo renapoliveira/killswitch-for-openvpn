@@ -27,6 +27,9 @@ Run the script specifying the full path of your .ovpn file:
 
 ## Notes
 
--The script is using tun0 as the VPN tunnel interface, if your OS uses a different one, edit the line TUNNEL=tun0 inside the script
+-The script is using tun0 as the VPN tunnel interface, if your OS uses a different one, edit the folloing line
+```shell
+TUNNEL=tun0
+```
 
 -Make sure your authentication details are properly configured within your .ovpn file, so when the VPN is reconnected, there will ne no interaction needed.
