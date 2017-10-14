@@ -22,7 +22,7 @@ chmod +x run.sh
 Run the script specifying the full path of your .ovpn file:
 
 ```shell
-./run.sh /tmp/vpn.ovpn
+sudo ./run.sh /tmp/vpn.ovpn
 ```
 
 ## Notes
