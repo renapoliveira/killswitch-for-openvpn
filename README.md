@@ -25,6 +25,12 @@ Run the script specifying the full path of your .ovpn file:
 sudo ./killswitch.sh /tmp/vpn.ovpn
 ```
 
+To stop the script and flush the firewall rules, press:
+
+```shell
+Ctrl + c
+```
+
 ## Notes
 
 * The script is using tun0 as the VPN tunnel interface, if your OS uses a different one, edit the following line
