@@ -2,7 +2,7 @@
 trap ctrl_c INT
 VPN_FILE=$1
 
-check_permission() {
+function check_permission() {
 	if test " `id -u`" != " 0"
 		then
 		echo "permission denied (use sudo)"
@@ -10,7 +10,7 @@ check_permission() {
 	fi
 }
 
-check_argument() {
+function check_argument() {
 	if [ -z $VPN_FILE ]
 		then
 		echo "First argument must be VPN file(.ovpn)"
@@ -18,7 +18,7 @@ check_argument() {
 	fi
 }
 
-config() {	
+function config() {	
 	#Get the default network interface
 	echo "Detecting your default network interface..."
 	INTERFACE=`route | grep '^default' | grep -o '[^ ]*$'`
@@ -39,7 +39,7 @@ function ctrl_c() {
 	exit 1
 }
 
-set_firewall_rules() {
+function set_firewall_rules() {
 	echo "Setting firewall rules"
 	iptables --flush
 	#Allow connection with the VPN IP
@@ -53,7 +53,7 @@ set_firewall_rules() {
 	iptables -A INPUT -i $INTERFACE -j DROP
 }
 
-reconnect() {
+function reconnect() {
 	echo "Reconnecting VPN"
 	#Kill older openvpn processes to avoid creating new tunnels
 	kill `ps -ef | grep "openvpn $VPN_FILE" | grep -v "grep" | awk '{print $2}'` > /dev/null 2>&1
@@ -62,7 +62,7 @@ reconnect() {
 }
 
 #Check every 20 seconds if VPN goes down, then reconnect it
-check_connection() {
+function check_connection() {
 	echo "Check VPN connection"
 	while [ true ]
 	do
