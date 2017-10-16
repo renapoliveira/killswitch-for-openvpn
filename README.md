@@ -9,7 +9,7 @@ This script performs the following:
 
 * It allows full communication through the VPN tunnel interface.
 
-* It reconnects to the VPN tunnel in case it goes down.
+* It reconnects to the VPN tunnel in case it gets disconnected.
 
 ## Usage
 
@@ -27,9 +27,9 @@ sudo ./killswitch.sh /tmp/vpn.ovpn
 
 ## Notes
 
-* The script is using tun0 as the VPN tunnel interface, if your OS uses a different one, edit the folloing line
+* The script is using tun0 as the VPN tunnel interface, if your OS uses a different one, edit the following line
 ```shell
 TUNNEL=tun0
 ```
 
-* Make sure your authentication credentials are properly configured within your .ovpn file, so when the VPN is reconnected, there will ne no interaction needed.
+* Make sure your authentication credentials are properly configured within your .ovpn file, so, when the VPN is reconnected, it will not ask you for credentials.
