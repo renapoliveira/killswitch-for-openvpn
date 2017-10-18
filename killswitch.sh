@@ -27,10 +27,18 @@ function config() {
 	TUNNEL=tun0
 	echo "Using interface "$TUNNEL " for VPN, change the script if you need another name."	
 
-	#Get the VPN IP from the VPN file
+	#Get the VPN IP, PORT and PROTOCOL from the VPN file
 	echo "Detecting your VPN server address..."
 	IP=`cat $VPN_FILE | grep "remote " | awk '{print $2}'`
-	echo "Using "$IP
+	echo "Using IP "$IP
+
+	echo "Detecting your VPN port..."
+	PORT=`cat $VPN_FILE | grep "remote " | awk '{print $3}'`
+	echo "Using port "$PORT
+
+	echo "Detecting your VPN protocol..."
+	PROTOCOL=`cat $VPN_FILE | grep "proto " | awk '{print $2}'`
+	echo "Using protocol "$PROTOCOL
 }
 
 function ctrl_c() {
@@ -43,8 +51,8 @@ function set_firewall_rules() {
 	echo "Setting firewall rules"
 	iptables --flush
 	#Allow connection with the VPN IP
-	iptables -A OUTPUT -d $IP -j ACCEPT
-	iptables -A INPUT -s $IP -j ACCEPT
+	iptables -A OUTPUT -p $PROTOCOL -d $IP --dport $PORT -j ACCEPT
+	iptables -A INPUT -p $PROTOCOL -s $IP --sport $PORT -j ACCEPT
 	#Allow connection through the tunnel
 	iptables -A OUTPUT -o $TUNNEL -j ACCEPT
 	iptables -A INPUT -i $TUNNEL -j ACCEPT

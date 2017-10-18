@@ -5,7 +5,7 @@ A killswitch script with autoconnecting function for OpenVPN
 
 This script performs the following:
 
-* It blocks all traffic through your default network interface, except the communication with the VPN IP address, meaning that if the VPN goes down, your traffic will not go through your default interface. 
+* It blocks all traffic through your default network interface, except the communication with the VPN, meaning that if the VPN goes down, your traffic will not go through your default interface. 
 
 * It allows full communication through the VPN tunnel interface.
 
