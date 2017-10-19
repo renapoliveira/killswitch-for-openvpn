@@ -37,7 +37,7 @@ Ctrl + c
 
 ## Notes
 
-* The script is using tun0 as the VPN tunnel interface, if your OS uses a different one, edit the following line
+* The script is using tun0 as the VPN tunnel interface, if your distro uses a different one, edit the following line
 ```shell
 TUNNEL=tun0
 ```

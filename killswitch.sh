@@ -25,7 +25,7 @@ function config() {
 	echo "Using "$INTERFACE
 
 	TUNNEL=tun0
-	echo "Using interface "$TUNNEL " for VPN, change the script if you need another name."	
+	echo "Using interface "$TUNNEL " for VPN, change the script if you need another one."	
 
 	#Get the VPN IP, PORT and PROTOCOL from the VPN file
 	echo "Detecting your VPN server address..."
