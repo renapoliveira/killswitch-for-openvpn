@@ -31,6 +31,10 @@ To stop the script and flush the firewall rules, press:
 Ctrl + c
 ```
 
+## Dependencies
+
+* NetworkManager and NetworkManager front-end(nmcli) - It is used to check whether the tunnel link is active or not. Note that Networkmanager is installed by default in Ubuntu and Ubuntu based distros.
+
 ## Notes
 
 * The script is using tun0 as the VPN tunnel interface, if your OS uses a different one, edit the following line
@@ -39,3 +43,4 @@ TUNNEL=tun0
 ```
 
 * Make sure your authentication credentials are properly configured within your .ovpn file, so, when the VPN is reconnected, it will not ask you for credentials.
+
