@@ -21,7 +21,7 @@ function check_argument() {
 function config() {	
 	#Get the default network interface
 	echo "Detecting your default network interface..."
-	INTERFACE=`route | grep '^default' | grep -o '[^ ]*$'`
+	INTERFACE=`ip addr | grep "state UP" | cut -d ":" -f 2 | head -n 1`
 	echo "Using "$INTERFACE
 
 	TUNNEL=tun0
